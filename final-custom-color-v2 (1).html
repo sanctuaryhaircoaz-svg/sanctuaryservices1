@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; overflow: hidden; background: #F7ECDE; }
+
+  .accordion-wrapper {
+    width: 100%;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: inherit;
+    background: #F7ECDE;
+    position: relative;
+  }
+
+  .section-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    text-align: justify;
+    color: inherit;
+    opacity: 0.75;
+    padding-bottom: 20px;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    background: #F7ECDE;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Last item gets higher z-index so its dropdown covers the button */
+  .accordion-item:last-of-type {
+    z-index: 10;
+  }
+
+  .accordion-item.open {
+    z-index: 20;
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    cursor: pointer;
+    user-select: none;
+    background: #F7ECDE;
+  }
+
+  .accordion-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  .accordion-toggle {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    flex-shrink: 0;
+    transition: transform 0.35s ease;
+  }
+
+  .accordion-toggle::before,
+  .accordion-toggle::after {
+    content: '';
+    position: absolute;
+    background-color: currentColor;
+    transition: all 0.35s ease;
+    border-radius: 1px;
+  }
+
+  .accordion-toggle::before {
+    width: 14px;
+    height: 1px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .accordion-toggle::after {
+    width: 1px;
+    height: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .accordion-item.open .accordion-toggle {
+    transform: rotate(45deg);
+  }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: #F7ECDE;
+  }
+
+  .accordion-item.open .accordion-body {
+    max-height: 2000px;
+  }
+
+  .accordion-content {
+    padding-bottom: 20px;
+    background: #F7ECDE;
+  }
+
+  .accordion-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    text-align: justify;
+    color: inherit;
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+
+  .accordion-includes {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: justify;
+    color: inherit;
+    opacity: 0.65;
+    margin-bottom: 10px;
+  }
+
+  .accordion-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.6;
+    color: inherit;
+    opacity: 0.55;
+    margin-bottom: 10px;
+  }
+
+  .accordion-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: inherit;
+    opacity: 0.65;
+    display: block;
+    text-align: right;
+  }
+
+  /* Book Now button */
+  .book-btn-wrapper {
+    padding: 24px 0 4px;
+    text-align: center;
+    background: #F7ECDE;
+    position: relative;
+    z-index: 1;
+  }
+
+  .book-btn {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #F7ECDE;
+    background: #2C1A12;
+    border: none;
+    padding: 12px 32px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .book-btn:hover {
+    opacity: 0.8;
+  }
+</style>
+</head>
+<body>
+<div class="accordion-wrapper">
+
+  <p class="section-description">All-inclusive — no hidden fees, no surprise add-ons. Every service includes color, gloss, bond repair, conditioning mask, haircut, and blowout. You walk out with finished, healthy hair. That's the standard here.</p>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Full Custom Color</span>
+      <div class="accordion-toggle"></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <p class="accordion-description">For the full transformation. Whether you're going blonde, brunette, red, or something in between — this is the service where we do it all. Perfect for new guests ready for a change, or existing clients due for a full reset. Personalized and designed around your skin tone and the result you've been dreaming about.</p>
+        <p class="accordion-includes">Includes: Custom foil/balayage, root melt, gloss, haircut, bond repair treatment, conditioning mask, blowout + style</p>
+        <span class="accordion-price">$235 · 5 hr 30 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Custom Color Maintenance</span>
+      <div class="accordion-toggle"></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <p class="accordion-description">You love your color — let's keep it that way. Designed for existing guests who need a refresh to keep their color vibrant, blended, and healthy. You'll leave looking like you just got a full service without the full commitment.</p>
+        <p class="accordion-includes">Includes: Custom partial foil/balayage, gloss, haircut, bond repair treatment, conditioning mask, blowout + style</p>
+        <span class="accordion-price">$185 · 4 hr 30 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Mini Custom Color</span>
+      <div class="accordion-toggle"></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <p class="accordion-description">A refresh without the full commitment. For existing guests who want to extend the life of their color — up to 12 strategically placed foils around the face to make your color feel fresh again.</p>
+        <p class="accordion-includes">Includes: Mini foil, gloss, root melt, bond repair treatment, conditioning mask, haircut, blowout + style</p>
+        <span class="accordion-price">$155 · 3 hr 30 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Gloss</span>
+      <div class="accordion-toggle"></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <p class="accordion-description">Brings your color back to life without lightening. Perfect for brightening existing blondes, refreshing or deepening color, neutralizing brassiness, or adding serious shine with a clear gloss. A root melt can be added to keep everything seamless.</p>
+        <p class="accordion-includes">Includes: Custom gloss, root melt, blowout + style</p>
+        <span class="accordion-price">$105 · 2 hr 30 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Root Retouch</span>
+      <div class="accordion-toggle"></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <p class="accordion-description">Color applied specifically to regrowth — up to one inch — to keep your color seamless, consistent, and vibrant. Whether covering grays or matching existing color, this keeps everything looking fresh. Recommended every 4–6 weeks.</p>
+        <p class="accordion-includes">Includes: Root color application, blowout + style</p>
+        <p class="accordion-note">For existing guests only. New clients please book a consultation first.</p>
+        <span class="accordion-price">$85 · 2 hr</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">All Over Color</span>
+      <div class="accordion-toggle"></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <p class="accordion-description">One rich, uniform shade from root to end. For dramatic color changes, full gray coverage, or a glossy all-over finish — designed around your skin tone to give you a vibrant, healthy result.</p>
+        <p class="accordion-includes">Includes: All over color application, blowout + style</p>
+        <p class="accordion-note">This service does not lighten existing color. If your goal is to go lighter and you've previously colored your hair, a blonding or corrective service may be required.</p>
+        <span class="accordion-price">$110 · 2 hr</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Custom Vivid</span>
+      <div class="accordion-toggle"></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <p class="accordion-description">Bold, creative, completely yours. Whether you want something wearable and lived-in or a full statement look that turns heads — fully customized around your vision and your hair's health. Consultation required.</p>
+        <p class="accordion-includes">Includes: Blonding, custom color placement, conditioning mask, bond repair treatment, haircut, blowout + style</p>
+        <p class="accordion-note">Priced at $80/hr. Exact timing and total confirmed at consultation.</p>
+        <span class="accordion-price">Starting at $240 · approx. 3 hr</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book Now button - gets covered by last open dropdown -->
+  <div class="book-btn-wrapper">
+    <a class="book-btn" href="https://book.squareup.com/appointments/YOUR_SQUARE_LINK" target="_blank">Book Now</a>
+  </div>
+
+</div>
+
+<script>
+  function toggleAccordion(header) {
+    const item = header.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
