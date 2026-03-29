@@ -7,43 +7,32 @@
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { margin: 0; padding: 0; overflow: hidden; background: #F7ECDE; }
+  html, body { margin: 0; padding: 0; background: #F7ECDE; }
 
   .accordion-wrapper {
     width: 100%;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     font-size: 15px;
-    color: inherit;
+    color: #2C1A12;
     background: #F7ECDE;
-    position: relative;
+    padding: 0;
   }
 
   .section-description {
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.6;
     text-align: justify;
-    color: inherit;
+    color: #2C1A12;
     opacity: 0.75;
     padding-bottom: 20px;
   }
 
   .accordion-item {
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(44,26,18,0.15);
     background: #F7ECDE;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Last item gets higher z-index so its dropdown covers the button */
-  .accordion-item:last-of-type {
-    z-index: 10;
-  }
-
-  .accordion-item.open {
-    z-index: 20;
   }
 
   .accordion-header {
@@ -62,7 +51,7 @@
     font-weight: 400;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: inherit;
+    color: #2C1A12;
   }
 
   .accordion-toggle {
@@ -77,7 +66,7 @@
   .accordion-toggle::after {
     content: '';
     position: absolute;
-    background-color: currentColor;
+    background-color: #2C1A12;
     transition: all 0.35s ease;
     border-radius: 1px;
   }
@@ -124,7 +113,7 @@
     font-weight: 400;
     line-height: 1.7;
     text-align: justify;
-    color: inherit;
+    color: #2C1A12;
     opacity: 0.85;
     margin-bottom: 8px;
   }
@@ -135,7 +124,7 @@
     font-style: italic;
     line-height: 1.6;
     text-align: justify;
-    color: inherit;
+    color: #2C1A12;
     opacity: 0.65;
     margin-bottom: 10px;
   }
@@ -145,7 +134,7 @@
     font-size: 13px;
     font-style: italic;
     line-height: 1.6;
-    color: inherit;
+    color: #2C1A12;
     opacity: 0.55;
     margin-bottom: 10px;
   }
@@ -154,39 +143,10 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
     font-style: italic;
-    color: inherit;
+    color: #2C1A12;
     opacity: 0.65;
     display: block;
     text-align: right;
-  }
-
-  /* Book Now button */
-  .book-btn-wrapper {
-    padding: 24px 0 4px;
-    text-align: center;
-    background: #F7ECDE;
-    position: relative;
-    z-index: 1;
-  }
-
-  .book-btn {
-    display: inline-block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #F7ECDE;
-    background: #2C1A12;
-    border: none;
-    padding: 12px 32px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-  }
-
-  .book-btn:hover {
-    opacity: 0.8;
   }
 </style>
 </head>
@@ -294,11 +254,6 @@
         <span class="accordion-price">Starting at $240 · approx. 3 hr</span>
       </div>
     </div>
-  </div>
-
-  <!-- Book Now button - gets covered by last open dropdown -->
-  <div class="book-btn-wrapper">
-    <a class="book-btn" href="https://book.squareup.com/appointments/YOUR_SQUARE_LINK" target="_blank">Book Now</a>
   </div>
 
 </div>
